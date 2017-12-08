@@ -1,0 +1,160 @@
+# Logfile created on 2017-12-06 15:29:19 +0100 by logger.rb/56438
+  INFO ---------------------------------------------------------------------------
+  INFO START 2017-12-06 15:29:19 +0100 cap production deploy
+  INFO ---------------------------------------------------------------------------
+  INFO [b2e403ee] Running /usr/bin/env mkdir -p /tmp as deploy@165.227.147.240
+ DEBUG [b2e403ee] Command: /usr/bin/env mkdir -p /tmp
+  INFO [b2e403ee] Finished in 8.056 seconds with exit status 0 (successful).
+ DEBUG Uploading /tmp/git-ssh-first-app-production-hakan.sh 0.0%
+  INFO Uploading /tmp/git-ssh-first-app-production-hakan.sh 100.0%
+  INFO [6eb50858] Running /usr/bin/env chmod 700 /tmp/git-ssh-first-app-production-hakan.sh as deploy@165.227.147.240
+ DEBUG [6eb50858] Command: /usr/bin/env chmod 700 /tmp/git-ssh-first-app-production-hakan.sh
+  INFO [6eb50858] Finished in 0.299 seconds with exit status 0 (successful).
+  INFO [7c845de4] Running /usr/bin/env git ls-remote git@github.com:HakanAkca/sf-try.git HEAD as deploy@165.227.147.240
+ DEBUG [7c845de4] Command: ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-first-app-production-hakan.sh" ; /usr/bin/env git ls-remote git@github.com:HakanAkca/sf-try.git HEAD )
+ DEBUG [7c845de4] 	d72a8994a6dd202047285add1d9a1f7f94a596e1	HEAD
+  INFO [7c845de4] Finished in 1.637 seconds with exit status 0 (successful).
+  INFO [90d382bf] Running /usr/bin/env mkdir -p /var/www/sf-try/shared /var/www/sf-try/releases as deploy@165.227.147.240
+ DEBUG [90d382bf] Command: /usr/bin/env mkdir -p /var/www/sf-try/shared /var/www/sf-try/releases
+  INFO [90d382bf] Finished in 0.212 seconds with exit status 0 (successful).
+ DEBUG [eca85ec8] Running [ -f /var/www/sf-try/current/REVISION ] as deploy@165.227.147.240
+ DEBUG [eca85ec8] Command: [ -f /var/www/sf-try/current/REVISION ]
+ DEBUG [eca85ec8] Finished in 0.278 seconds with exit status 1 (failed).
+ DEBUG [7b538420] Running [ -f /var/www/sf-try/repo/HEAD ] as deploy@165.227.147.240
+ DEBUG [7b538420] Command: [ -f /var/www/sf-try/repo/HEAD ]
+ DEBUG [7b538420] Finished in 0.223 seconds with exit status 1 (failed).
+ DEBUG [0afcd005] Running if test ! -d /var/www/sf-try; then echo "Directory does not exist '/var/www/sf-try'" 1>&2; false; fi as deploy@165.227.147.240
+ DEBUG [0afcd005] Command: if test ! -d /var/www/sf-try; then echo "Directory does not exist '/var/www/sf-try'" 1>&2; false; fi
+ DEBUG [0afcd005] Finished in 0.241 seconds with exit status 0 (successful).
+  INFO [85590d3d] Running /usr/bin/env git clone --mirror git@github.com:HakanAkca/sf-try.git /var/www/sf-try/repo as deploy@165.227.147.240
+ DEBUG [85590d3d] Command: cd /var/www/sf-try && ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-first-app-production-hakan.sh" ; /usr/bin/env git clone --mirror git@github.com:HakanAkca/sf-try.git /var/www/sf-try/repo )
+ DEBUG [85590d3d] 	Cloning into bare repository '/var/www/sf-try/repo'...
+  INFO [85590d3d] Finished in 1.967 seconds with exit status 0 (successful).
+ DEBUG [f4a7c6c9] Running if test ! -d /var/www/sf-try/repo; then echo "Directory does not exist '/var/www/sf-try/repo'" 1>&2; false; fi as deploy@165.227.147.240
+ DEBUG [f4a7c6c9] Command: if test ! -d /var/www/sf-try/repo; then echo "Directory does not exist '/var/www/sf-try/repo'" 1>&2; false; fi
+ DEBUG [f4a7c6c9] Finished in 0.260 seconds with exit status 0 (successful).
+  INFO [f867919c] Running /usr/bin/env git remote set-url origin git@github.com:HakanAkca/sf-try.git as deploy@165.227.147.240
+ DEBUG [f867919c] Command: cd /var/www/sf-try/repo && ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-first-app-production-hakan.sh" ; /usr/bin/env git remote set-url origin git@github.com:HakanAkca/sf-try.git )
+  INFO [f867919c] Finished in 0.381 seconds with exit status 0 (successful).
+  INFO [3485d304] Running /usr/bin/env git remote update --prune as deploy@165.227.147.240
+ DEBUG [3485d304] Command: cd /var/www/sf-try/repo && ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-first-app-production-hakan.sh" ; /usr/bin/env git remote update --prune )
+ DEBUG [3485d304] 	Fetching origin
+  INFO [3485d304] Finished in 1.746 seconds with exit status 0 (successful).
+ DEBUG [5e816860] Running if test ! -d /var/www/sf-try/repo; then echo "Directory does not exist '/var/www/sf-try/repo'" 1>&2; false; fi as deploy@165.227.147.240
+ DEBUG [5e816860] Command: if test ! -d /var/www/sf-try/repo; then echo "Directory does not exist '/var/www/sf-try/repo'" 1>&2; false; fi
+ DEBUG [5e816860] Finished in 0.376 seconds with exit status 0 (successful).
+  INFO [7d4983b2] Running /usr/bin/env mkdir -p /var/www/sf-try/releases/20171206142930 as deploy@165.227.147.240
+ DEBUG [7d4983b2] Command: cd /var/www/sf-try/repo && ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-first-app-production-hakan.sh" ; /usr/bin/env mkdir -p /var/www/sf-try/releases/20171206142930 )
+  INFO [7d4983b2] Finished in 0.335 seconds with exit status 0 (successful).
+  INFO [643bcb73] Running /usr/bin/env git archive master | /usr/bin/env tar -x -f - -C /var/www/sf-try/releases/20171206142930 as deploy@165.227.147.240
+ DEBUG [643bcb73] Command: cd /var/www/sf-try/repo && ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-first-app-production-hakan.sh" ; /usr/bin/env git archive master | /usr/bin/env tar -x -f - -C /var/www/sf-try/releases/20171206142930 )
+  INFO [643bcb73] Finished in 0.327 seconds with exit status 0 (successful).
+ DEBUG [10cb1c28] Running if test ! -d /var/www/sf-try/repo; then echo "Directory does not exist '/var/www/sf-try/repo'" 1>&2; false; fi as deploy@165.227.147.240
+ DEBUG [10cb1c28] Command: if test ! -d /var/www/sf-try/repo; then echo "Directory does not exist '/var/www/sf-try/repo'" 1>&2; false; fi
+ DEBUG [10cb1c28] Finished in 0.370 seconds with exit status 0 (successful).
+ DEBUG [65fafd05] Running /usr/bin/env git rev-list --max-count=1 master as deploy@165.227.147.240
+ DEBUG [65fafd05] Command: cd /var/www/sf-try/repo && ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-first-app-production-hakan.sh" ; /usr/bin/env git rev-list --max-count=1 master )
+ DEBUG [65fafd05] 	d72a8994a6dd202047285add1d9a1f7f94a596e1
+ DEBUG [65fafd05] Finished in 0.361 seconds with exit status 0 (successful).
+ DEBUG [12ae6f3b] Running if test ! -d /var/www/sf-try/releases/20171206142930; then echo "Directory does not exist '/var/www/sf-try/releases/20171206142930'" 1>&2; false; fi as deploy@165.227.147.240
+ DEBUG [12ae6f3b] Command: if test ! -d /var/www/sf-try/releases/20171206142930; then echo "Directory does not exist '/var/www/sf-try/releases/20171206142930'" 1>&2; false; fi
+ DEBUG [12ae6f3b] Finished in 0.276 seconds with exit status 0 (successful).
+  INFO [7e8997da] Running /usr/bin/env echo "d72a8994a6dd202047285add1d9a1f7f94a596e1" >> REVISION as deploy@165.227.147.240
+ DEBUG [7e8997da] Command: cd /var/www/sf-try/releases/20171206142930 && /usr/bin/env echo "d72a8994a6dd202047285add1d9a1f7f94a596e1" >> REVISION
+  INFO [7e8997da] Finished in 0.326 seconds with exit status 0 (successful).
+  INFO [015a6e4c] Running /usr/bin/env ln -s /var/www/sf-try/releases/20171206142930 /var/www/sf-try/releases/current as deploy@165.227.147.240
+ DEBUG [015a6e4c] Command: /usr/bin/env ln -s /var/www/sf-try/releases/20171206142930 /var/www/sf-try/releases/current
+  INFO [015a6e4c] Finished in 0.414 seconds with exit status 0 (successful).
+  INFO [e01cf0f2] Running /usr/bin/env mv /var/www/sf-try/releases/current /var/www/sf-try as deploy@165.227.147.240
+ DEBUG [e01cf0f2] Command: /usr/bin/env mv /var/www/sf-try/releases/current /var/www/sf-try
+  INFO [e01cf0f2] Finished in 0.282 seconds with exit status 0 (successful).
+ DEBUG [dfdb44c3] Running /usr/bin/env ls -x /var/www/sf-try/releases as deploy@165.227.147.240
+ DEBUG [dfdb44c3] Command: /usr/bin/env ls -x /var/www/sf-try/releases
+ DEBUG [dfdb44c3] 	20171206142930
+ DEBUG [dfdb44c3] Finished in 0.300 seconds with exit status 0 (successful).
+ DEBUG [2eed2114] Running if test ! -d /var/www/sf-try/releases; then echo "Directory does not exist '/var/www/sf-try/releases'" 1>&2; false; fi as deploy@165.227.147.240
+ DEBUG [2eed2114] Command: if test ! -d /var/www/sf-try/releases; then echo "Directory does not exist '/var/www/sf-try/releases'" 1>&2; false; fi
+ DEBUG [2eed2114] Finished in 0.341 seconds with exit status 0 (successful).
+  INFO [a238ff05] Running /usr/bin/env echo "Branch master (at d72a8994a6dd202047285add1d9a1f7f94a596e1) deployed as release 20171206142930 by hakan" >> /var/www/sf-try/revisions.log as deploy@165.227.147.240
+ DEBUG [a238ff05] Command: cd /var/www/sf-try/releases && /usr/bin/env echo "Branch master (at d72a8994a6dd202047285add1d9a1f7f94a596e1) deployed as release 20171206142930 by hakan" >> /var/www/sf-try/revisions.log
+  INFO [a238ff05] Finished in 0.271 seconds with exit status 0 (successful).
+  INFO ---------------------------------------------------------------------------
+  INFO START 2017-12-06 15:30:08 +0100 cap production deploy
+  INFO ---------------------------------------------------------------------------
+  INFO [9f96b6f1] Running /usr/bin/env mkdir -p /tmp as deploy@165.227.147.240
+ DEBUG [9f96b6f1] Command: /usr/bin/env mkdir -p /tmp
+  INFO [9f96b6f1] Finished in 4.521 seconds with exit status 0 (successful).
+ DEBUG Uploading /tmp/git-ssh-first-app-production-hakan.sh 0.0%
+  INFO Uploading /tmp/git-ssh-first-app-production-hakan.sh 100.0%
+  INFO [f4ca462d] Running /usr/bin/env chmod 700 /tmp/git-ssh-first-app-production-hakan.sh as deploy@165.227.147.240
+ DEBUG [f4ca462d] Command: /usr/bin/env chmod 700 /tmp/git-ssh-first-app-production-hakan.sh
+  INFO [f4ca462d] Finished in 0.300 seconds with exit status 0 (successful).
+  INFO [b79b6f51] Running /usr/bin/env git ls-remote git@github.com:HakanAkca/sf-try.git HEAD as deploy@165.227.147.240
+ DEBUG [b79b6f51] Command: ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-first-app-production-hakan.sh" ; /usr/bin/env git ls-remote git@github.com:HakanAkca/sf-try.git HEAD )
+ DEBUG [b79b6f51] 	d72a8994a6dd202047285add1d9a1f7f94a596e1	HEAD
+  INFO [b79b6f51] Finished in 2.046 seconds with exit status 0 (successful).
+  INFO [988483ed] Running /usr/bin/env mkdir -p /var/www/sf-try/shared /var/www/sf-try/releases as deploy@165.227.147.240
+ DEBUG [988483ed] Command: /usr/bin/env mkdir -p /var/www/sf-try/shared /var/www/sf-try/releases
+  INFO [988483ed] Finished in 0.257 seconds with exit status 0 (successful).
+ DEBUG [cdd97f96] Running [ -f /var/www/sf-try/current/REVISION ] as deploy@165.227.147.240
+ DEBUG [cdd97f96] Command: [ -f /var/www/sf-try/current/REVISION ]
+ DEBUG [cdd97f96] Finished in 0.317 seconds with exit status 1 (failed).
+ DEBUG [c7221be6] Running [ -f /var/www/sf-try/repo/HEAD ] as deploy@165.227.147.240
+ DEBUG [c7221be6] Command: [ -f /var/www/sf-try/repo/HEAD ]
+ DEBUG [c7221be6] Finished in 0.350 seconds with exit status 1 (failed).
+ DEBUG [91aa08b9] Running if test ! -d /var/www/sf-try; then echo "Directory does not exist '/var/www/sf-try'" 1>&2; false; fi as deploy@165.227.147.240
+ DEBUG [91aa08b9] Command: if test ! -d /var/www/sf-try; then echo "Directory does not exist '/var/www/sf-try'" 1>&2; false; fi
+ DEBUG [91aa08b9] Finished in 0.400 seconds with exit status 0 (successful).
+  INFO [b27fe7e4] Running /usr/bin/env git clone --mirror git@github.com:HakanAkca/sf-try.git /var/www/sf-try/repo as deploy@165.227.147.240
+ DEBUG [b27fe7e4] Command: cd /var/www/sf-try && ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-first-app-production-hakan.sh" ; /usr/bin/env git clone --mirror git@github.com:HakanAkca/sf-try.git /var/www/sf-try/repo )
+ DEBUG [b27fe7e4] 	Cloning into bare repository '/var/www/sf-try/repo'...
+  INFO [b27fe7e4] Finished in 1.860 seconds with exit status 0 (successful).
+ DEBUG [66892484] Running if test ! -d /var/www/sf-try/repo; then echo "Directory does not exist '/var/www/sf-try/repo'" 1>&2; false; fi as deploy@165.227.147.240
+ DEBUG [66892484] Command: if test ! -d /var/www/sf-try/repo; then echo "Directory does not exist '/var/www/sf-try/repo'" 1>&2; false; fi
+ DEBUG [66892484] Finished in 0.254 seconds with exit status 0 (successful).
+  INFO [2f0ec86f] Running /usr/bin/env git remote set-url origin git@github.com:HakanAkca/sf-try.git as deploy@165.227.147.240
+ DEBUG [2f0ec86f] Command: cd /var/www/sf-try/repo && ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-first-app-production-hakan.sh" ; /usr/bin/env git remote set-url origin git@github.com:HakanAkca/sf-try.git )
+  INFO [2f0ec86f] Finished in 0.282 seconds with exit status 0 (successful).
+  INFO [a5bdc1b3] Running /usr/bin/env git remote update --prune as deploy@165.227.147.240
+ DEBUG [a5bdc1b3] Command: cd /var/www/sf-try/repo && ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-first-app-production-hakan.sh" ; /usr/bin/env git remote update --prune )
+ DEBUG [a5bdc1b3] 	Fetching origin
+ DEBUG [a5bdc1b3] 	Warning: Permanently added the RSA host key for IP address '192.30.255.113' to the list of known hosts.
+  INFO [a5bdc1b3] Finished in 2.400 seconds with exit status 0 (successful).
+ DEBUG [e459a2c8] Running if test ! -d /var/www/sf-try/repo; then echo "Directory does not exist '/var/www/sf-try/repo'" 1>&2; false; fi as deploy@165.227.147.240
+ DEBUG [e459a2c8] Command: if test ! -d /var/www/sf-try/repo; then echo "Directory does not exist '/var/www/sf-try/repo'" 1>&2; false; fi
+ DEBUG [e459a2c8] Finished in 0.276 seconds with exit status 0 (successful).
+  INFO [ed8e501e] Running /usr/bin/env mkdir -p /var/www/sf-try/releases/20171206143016 as deploy@165.227.147.240
+ DEBUG [ed8e501e] Command: cd /var/www/sf-try/repo && ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-first-app-production-hakan.sh" ; /usr/bin/env mkdir -p /var/www/sf-try/releases/20171206143016 )
+  INFO [ed8e501e] Finished in 0.306 seconds with exit status 0 (successful).
+  INFO [63f809f0] Running /usr/bin/env git archive master | /usr/bin/env tar -x -f - -C /var/www/sf-try/releases/20171206143016 as deploy@165.227.147.240
+ DEBUG [63f809f0] Command: cd /var/www/sf-try/repo && ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-first-app-production-hakan.sh" ; /usr/bin/env git archive master | /usr/bin/env tar -x -f - -C /var/www/sf-try/releases/20171206143016 )
+  INFO [63f809f0] Finished in 0.285 seconds with exit status 0 (successful).
+ DEBUG [01341868] Running if test ! -d /var/www/sf-try/repo; then echo "Directory does not exist '/var/www/sf-try/repo'" 1>&2; false; fi as deploy@165.227.147.240
+ DEBUG [01341868] Command: if test ! -d /var/www/sf-try/repo; then echo "Directory does not exist '/var/www/sf-try/repo'" 1>&2; false; fi
+ DEBUG [01341868] Finished in 0.254 seconds with exit status 0 (successful).
+ DEBUG [6c87eb40] Running /usr/bin/env git rev-list --max-count=1 master as deploy@165.227.147.240
+ DEBUG [6c87eb40] Command: cd /var/www/sf-try/repo && ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-first-app-production-hakan.sh" ; /usr/bin/env git rev-list --max-count=1 master )
+ DEBUG [6c87eb40] 	d72a8994a6dd202047285add1d9a1f7f94a596e1
+ DEBUG [6c87eb40] Finished in 0.260 seconds with exit status 0 (successful).
+ DEBUG [f3a20981] Running if test ! -d /var/www/sf-try/releases/20171206143016; then echo "Directory does not exist '/var/www/sf-try/releases/20171206143016'" 1>&2; false; fi as deploy@165.227.147.240
+ DEBUG [f3a20981] Command: if test ! -d /var/www/sf-try/releases/20171206143016; then echo "Directory does not exist '/var/www/sf-try/releases/20171206143016'" 1>&2; false; fi
+ DEBUG [f3a20981] Finished in 0.250 seconds with exit status 0 (successful).
+  INFO [4150b6f4] Running /usr/bin/env echo "d72a8994a6dd202047285add1d9a1f7f94a596e1" >> REVISION as deploy@165.227.147.240
+ DEBUG [4150b6f4] Command: cd /var/www/sf-try/releases/20171206143016 && /usr/bin/env echo "d72a8994a6dd202047285add1d9a1f7f94a596e1" >> REVISION
+  INFO [4150b6f4] Finished in 0.291 seconds with exit status 0 (successful).
+  INFO [1e63abd0] Running /usr/bin/env ln -s /var/www/sf-try/releases/20171206143016 /var/www/sf-try/releases/current as deploy@165.227.147.240
+ DEBUG [1e63abd0] Command: /usr/bin/env ln -s /var/www/sf-try/releases/20171206143016 /var/www/sf-try/releases/current
+  INFO [1e63abd0] Finished in 0.275 seconds with exit status 0 (successful).
+  INFO [ed7e195e] Running /usr/bin/env mv /var/www/sf-try/releases/current /var/www/sf-try as deploy@165.227.147.240
+ DEBUG [ed7e195e] Command: /usr/bin/env mv /var/www/sf-try/releases/current /var/www/sf-try
+  INFO [ed7e195e] Finished in 0.269 seconds with exit status 0 (successful).
+ DEBUG [cc2e55fd] Running /usr/bin/env ls -x /var/www/sf-try/releases as deploy@165.227.147.240
+ DEBUG [cc2e55fd] Command: /usr/bin/env ls -x /var/www/sf-try/releases
+ DEBUG [cc2e55fd] 	20171206143016
+ DEBUG [cc2e55fd] Finished in 0.279 seconds with exit status 0 (successful).
+ DEBUG [fa2556aa] Running if test ! -d /var/www/sf-try/releases; then echo "Directory does not exist '/var/www/sf-try/releases'" 1>&2; false; fi as deploy@165.227.147.240
+ DEBUG [fa2556aa] Command: if test ! -d /var/www/sf-try/releases; then echo "Directory does not exist '/var/www/sf-try/releases'" 1>&2; false; fi
+ DEBUG [fa2556aa] Finished in 0.309 seconds with exit status 0 (successful).
+  INFO [a57c0a4f] Running /usr/bin/env echo "Branch master (at d72a8994a6dd202047285add1d9a1f7f94a596e1) deployed as release 20171206143016 by hakan" >> /var/www/sf-try/revisions.log as deploy@165.227.147.240
+ DEBUG [a57c0a4f] Command: cd /var/www/sf-try/releases && /usr/bin/env echo "Branch master (at d72a8994a6dd202047285add1d9a1f7f94a596e1) deployed as release 20171206143016 by hakan" >> /var/www/sf-try/revisions.log
+  INFO [a57c0a4f] Finished in 0.297 seconds with exit status 0 (successful).
